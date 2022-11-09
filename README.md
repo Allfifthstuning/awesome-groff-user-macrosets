@@ -1,6 +1,8 @@
 # awesome-groff-user-macrosets
 Collection of user macrosets for groff typesetting system
+## Macros
 
+## External sources
 * [gpresent](https://github.com/rhaberkorn/gpresent) - presentation macros
 * [mono](https://github.com/Alhadis/Mono) - troff macros for the 21st century
 * [mackle](https://github.com/mftrhu/mackle) - a more modern, more broken set of groff macros
