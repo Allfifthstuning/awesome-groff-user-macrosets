@@ -1,7 +1,7 @@
 # awesome-groff-user-macrosets
 Collection of user macrosets for groff typesetting system
 ## Macros
-* [LILY](extensions/mm/lilypond.tmac) - Macro to convert .ly into pdf and import pdf using PDFPIC
+* [LILY](/extensions/mm/lilypond.tmac) - Macro to convert .ly into pdf and import pdf using PDFPIC
 ## External sources
 * [gpresent](https://github.com/rhaberkorn/gpresent) - presentation macros
 * [mono](https://github.com/Alhadis/Mono) - troff macros for the 21st century
