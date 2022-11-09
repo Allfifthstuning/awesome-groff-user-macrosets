@@ -1,0 +1,23 @@
+.\" Macro to convert .ly file into pdf and use PDFPIC to import it.
+.\" This macro needs -U option.
+.de LILY
+.nr centi 1c
+.nr milli \\n[centi]/10
+.nr linemm \\n[.ll]/\\n[milli]
+.open tmp tmp.ly
+.write tmp \include "lilypond-book-preamble.ly"
+.write tmp \paper {
+.write tmp 	indent = 0\mm
+.write tmp line-width = \\n[linemm]\mm
+.write tmp % offset the left padding, also add 1mm as lilypond creates cropped
+.write tmp   % images with a little space on the right
+.write tmp   	line-width = #(- line-width (* mm  3.000000) (* mm 1))
+.write tmp }
+.write tmp \layout {
+.write tmp }
+.close tmp
+.sy cat \\$1 >> tmp.ly
+.sy lilypond --output=\\$1 tmp.ly
+.sy rm \\$1-* tmp.ly
+.PDFPIC \\$2 \\$1.pdf \\$3 \\$4 \\$5
+..
