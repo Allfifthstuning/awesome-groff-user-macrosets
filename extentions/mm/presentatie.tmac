@@ -1,0 +1,39 @@
+.S 28
+.PGFORM 25c 16.70625c 2.35c 1
+.PH "''''"
+.ISODATE 1
+.\" Macro for custom top header
+.de TP
+.sp 1
+.tl \\*[TPh]
+.sp 1
+..
+.\" Macro for title"
+.de TITLE END
+.PH "'\s9CSG De Lage Waard\s0'\\$1'\s9[misterbzr]$_\s0'"
+.END
+.
+.\" Macro for pause in presentation
+.de PAUSE END
+.if !r PA .pdfpause
+.END
+\#Antwoord macro
+.de ANT END
+.       if (\n[ANTNR] == 0) .ig ANTEND
+.       sp
+.       B Antwoord:
+.       br
+.END
+.
+.de ANTEND END
+.       br
+.END
+.nr pixel 1p
+.nr linepix (\n[.l] / \n[pixel])
+.de BREED END
+.nr Breed \n[linepix] / \$1
+.END
+.\" Dubbele pijl voor een vergelijking
+.de darrow
+\v'0.15v'\[<-]\h'-\w'\[->]'u'\v'-0.3'\[->]\v'0.15'\c
+..

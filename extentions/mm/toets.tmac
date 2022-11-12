@@ -1,0 +1,74 @@
+\# Toets macro
+\# Macro gaat ervan uit dat er gebruik gemaakt wordt van
+\# mmroff processor.
+\# De benodigde bestanden om kruisverwijzingen te kunnen maken
+.so punten.txt
+.so vragen.txt
+\# fonttype en puntgrootte op basis van dyslectie standaard.
+.\"fam H
+.S 12
+\# Instellen van de juiste waarden
+.ds Lifg Figuur
+.PH "''''"
+.PF  "''- % -''"
+.if !r ANTNR .nr ANTNR 0
+.nr VRAAGNR 0 1
+.nr PUNTT 0
+\# Vraag macro
+.de VRA END
+.	nr PUNTT \\n[PUNTT]+\\$1
+.	nr POSP \\n[.o]u/2u
+.br
+\h'-\\n[POSP]u'(\\$1p)\h'-\w'(\\$1p)'u'\h'\\n[POSP]u'\\n+[VRAAGNR]. \c 
+.END
+.
+\# Vraag eind macro
+.de VRAEND END
+.	br
+.END
+.
+\#Invul macro
+.de INV END
+.	if (\n[ANTNR] == 1) .ig INVEND
+.	br
+.END
+.
+.de INVEND END
+.	ie (\n[ANTNR] == 0) .SP
+.	el .br
+.END
+.
+\#Antwoord macro
+.de ANT END
+.	if (\n[ANTNR] == 0) .ig ANTEND
+.	sp
+.	B Antwoord:
+.	br
+.END
+.
+.de ANTEND END
+.	br
+.END
+.
+\# Lijn macro
+.de LIJN END
+.nr AANTL 1 1
+.while (\\n[AANTL] <= \\$1 ) \{\
+.sp
+\l'\n[.ll]u'
+.br
+.nr AANTL +1
+.\}
+.sp
+.END
+.
+\# Eind macro
+.de EIND END
+.	open punten punten.txt
+.	write punten .nr TOTP \\n[PUNTT]
+.	close punten
+.
+.	open vragen vragen.txt
+.	write vragen .nr TOTV \\n[VRAAGNR]
+.	close vragen
+.END
