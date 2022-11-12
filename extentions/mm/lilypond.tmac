@@ -1,6 +1,4 @@
-.\" Macro to convert .ly file into pdf and use PDFPIC to import it.
-.\" This macro needs -U option.
-.de LILY
+.de LILYBUILD
 .nr centi 1c
 .nr milli \\n[centi]/10
 .nr linemm \\n[.ll]/\\n[milli]
@@ -12,12 +10,28 @@
 .write tmp % offset the left padding, also add 1mm as lilypond creates cropped
 .write tmp   % images with a little space on the right
 .write tmp   	line-width = #(- line-width (* mm  3.000000) (* mm 1))
+.write tmp myStaffSize = #10
 .write tmp }
 .write tmp \layout {
+.write tmp #(layout-set-staff-size \\n[.s])
+.write tmp \context {
+.write tmp    \Score
+.write tmp    \override StaffGrouper.staff-staff-spacing.padding = #0
+.write tmp    \override StaffGrouper.staff-staff-spacing.basic-distance = #0
+.write tmp  }
 .write tmp }
 .close tmp
 .sy cat \\$1 >> tmp.ly
-.sy lilypond --output=\\$1 tmp.ly
-.sy rm \\$1-* tmp.ly
-.PDFPIC \\$2 \\$1.pdf \\$3 \\$4 \\$5
+.sy lilypond --output=$(pwd)/build/\\$1 tmp.ly
+.sy rm $(pwd)/build/\\$1-* tmp.ly
+..
+.de LILY
+.sy touch rblil.txt 
+.sy [ ! -f $(pwd)/build/\\$1.pdf ] && echo ".nr lily 1" > rblil.txt
+.sy [ -f $(pwd)/build/\\$1.pdf ] && [ \\$1 -nt $(pwd)/build/\\$1.pdf ] && echo ".nr lily 1" > rblil.txt
+.so rblil.txt
+.if r lily .LILYBUILD \\$1
+.PDFPIC \\$2 build/\\$1.pdf \\$3 \\$4 \\$5
+.sy rm rblil.txt
+.rm lily
 ..
