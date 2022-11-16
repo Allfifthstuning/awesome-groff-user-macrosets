@@ -25,13 +25,37 @@
 .sy lilypond --output=$(pwd)/build/\\$1 tmp.ly
 .sy rm $(pwd)/build/\\$1-* tmp.ly
 ..
-.de LILY
+.de LILYCHECK
 .sy touch rblil.txt 
 .sy [ ! -f $(pwd)/build/\\$1.pdf ] && echo ".nr lily 1" > rblil.txt
 .sy [ -f $(pwd)/build/\\$1.pdf ] && [ \\$1 -nt $(pwd)/build/\\$1.pdf ] && echo ".nr lily 1" > rblil.txt
 .so rblil.txt
 .if r lily .LILYBUILD \\$1
+..
+.
+.de LILY
+.LILYCHECK \\$1
 .PDFPIC \\$2 build/\\$1.pdf \\$3 \\$4 \\$5
 .sy rm rblil.txt
 .rm lily
+..
+.
+.de LILYIN
+.LILYCHECK \\$1
+.ec @
+.sy pdfinfo build/@$1.pdf | \
+grep -a "Page *size" | \
+sed -e 's/Page *size: *\\([[:digit:].]*\\) *x *\\([[:digit:].]*\\).*$/\
+.nr in-wid (p;\\1)\\n\
+.nr in-ht  (p;\\2)/' \
+> /tmp/pdfpicA
+.so /tmp/pdfpicA
+.sy rm /tmp/pdfpicA
+.ec
+.sy echo ".ds Breed $(echo 'scale=2; \\n[in-wid]/\\n[in-ht]*\\n[.ps]/1000' | bc -l)"p > /tmp/pdffac
+.so /tmp/pdffac
+.sy rm /tmp/pdffac
+\v'-\\n[.ps]u'
+\X'pdf: pdfpic build/\\$1.pdf 0p \\*[Breed]'
+\h'\\*[Breed]' 
 ..
