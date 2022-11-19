@@ -58,7 +58,7 @@ http://savannah.gnu.org/bugs/?group=groff.
 .\" Kenmerk
 .ds LetKEN Kenmerk:
 .\" Uw kenmerk
-.ds LetMKEN Uw kenmerk:
+.ds LetOKEN Uw kenmerk:
 .\" Aantal pagina's
 .ds LetPAGINA
 .\" Nederlandse standaard
@@ -100,14 +100,14 @@ http://savannah.gnu.org/bugs/?group=groff.
 .\" pos T4 -----------------------------------
 .in 9.14c
 .\"----- Taakcompletering
-.if d let*lo-KOMP \{\
+.if d let*lo-COMP \{\
 .	sp |2
-\\*[let*lo-KOMP]
+\\*[let*lo-COMP]
 .\}
 .\"----- dokumentnamn
-.if d let*lo-DNAMN \{\
+.if d let*lo-DNAAN \{\
 .	sp |3
-\\*[let*lo-DNAMN]
+\\*[let*lo-DNAAN]
 .\}
 .\"----- datum
 .if d cov*new-date \{\
@@ -115,45 +115,45 @@ http://savannah.gnu.org/bugs/?group=groff.
 Datum:
 \\*[cov*new-date]
 .\}
-.\"----- mottagarens datum
-.if d let*lo-MDAT \{\
+.\"----- Onvangstdatum
+.if d let*lo-ODAT \{\
 .	sp |7
-\\*[LetMDAT]
-\\*[let*lo-MDAT]
+\\*[LetODAT]
+\\*[let*lo-ODAT]
 .\}
-.\"----- addressat
+.\"----- Geadresseerde
 .if '\\$1'H' .if d let@ia-div \{\
 .	sp |10
 .	let@ia-div
 .\}
 .\" pos T6 -----------------------------------
 .in 13.72c
-.\"----- mottagarens beteck.
-.if d let*lo-MBET \{\
+.\"----- Ontvanger kenmerk
+.if d let*lo-OKEN \{\
 .	sp |7
-\\*[LetMBET]
-\\*[let*lo-MBET]
+\\*[LetOKEN]
+\\*[let*lo-OKEN]
 .\}
-.\"----- dokumentbeteck.
-.if d let*lo-BET \{\
+.\"----- Documentkenmerk
+.if d let*lo-DNUM \{\
 .	sp |3
-\\*[LetBET]
-\\*[let*lo-BET]
+\\*[LetDNUM]
+\\*[let*lo-DNUM]
 .\}
 .\" pos T7 -----------------------------------
 .in 16c
-.\"----- bilaga
-.if d let*lo-BIL \{\
+.\"----- bijlagen
+.if d let*lo-BIJ \{\
 .	sp |2
-\\*[LetBIL]\\*[let*lo-BIL]
+\\*[LetBIJ]\\*[let*lo-BIJ]
 .\}
 .\"
-.\"----- sidnummer
+.\"----- paginanummer
 .sp |3
-.ie d let*lo-SIDOR \\n[%] (\\*[let*lo-SIDOR])
+.ie d let*lo-PAGINA \\n[%] (\\*[let*lo-PAGINA])
 .el \\n[%]
 .\"
-.\" Ta hand om special
+.\" Het ga je goed
 .if d TP .TP
 .sp |17
 ..
