@@ -1,0 +1,170 @@
+.ig
+
+Copyright (C) 1991-2018 Free Software Foundation, Inc.
+mgm is written by Jörgen Hägg <jh@axis.com>
+
+mgm is free software; you can redistribute it and/or modify it under
+the terms of the GNU General Public License as published by the Free
+Software Foundation, either version 3 of the License, or
+(at your option) any later version.
+
+mgm is distributed in the hope that it will be useful, but WITHOUT ANY
+WARRANTY; without even the implied warranty of MERCHANTABILITY or
+FITNESS FOR A PARTICULAR PURPOSE.  See the GNU General Public License
+for more details.
+
+You should have received a copy of the GNU General Public License
+along with this program.  If not, see <http://www.gnu.org/licenses/>.
+
+Please submit bug reports with examples at
+http://savannah.gnu.org/bugs/?group=groff.
+..
+.
+.\"
+.\" Dutch version of mm
+.\"
+.\" See m.tmac for version-information.
+.ds @country nl
+.
+.mso m.tmac
+.\" The two-letter code for Swedish is 'sv', not 'se' (this is Northern Sami)
+.mso -nl.tmac
+.
+.ISODATE
+.
+.\"	Page length
+.if !r L .nr @pl 28.5c
+.\"	page width
+.if !r W .nr @ll 13c
+.\"	page offset
+.if !r O .nr @po 3.5c
+.\"	set the above parameters
+.ll \n[@ll]u
+.po \n[@po]u
+.pl \n[@pl]u
+.
+.nr pg*footer-size 4\"                  1v+footer+even/odd footer+1v
+.\"------------------------------------------------
+.\" Dokumentnaan
+.ds LetDNAAN
+.\" Ontvangstdatum
+.ds LetODAT Uw datum:
+.\" Bijlage
+.ds LetBIJ Bijlage \"
+.\" Taakcompletering
+.ds LetCOMP
+.\" Document nummer / aanduiding
+.ds LetDNUM
+.\" Kenmerk
+.ds LetKEN Kenmerk:
+.\" Uw kenmerk
+.ds LetMKEN Uw kenmerk:
+.\" Aantal pagina's
+.ds LetPAGINA
+.\" Nederlandse standaard
+.de let@init_NLH
+.in 4.57c
+.ll 17.57c
+..
+.de let@head_NLH
+.rm let@header
+.let@print_NL H
+..
+.de let@sg_NLH
+..
+.de let@fc_NLH
+..
+.\" Nederlandse standaard met uitgevulde tekst
+.de let@init_NLV
+..
+.de let@head_NLV
+.rm let@header
+.let@print_NL V
+..
+.de let@sg_NLV
+..
+.de let@fc_NLV
+..
+.\"--------------------------------
+.de let@print_NL
+.nf
+.\" pos T0 -----------------------------------
+.in 0
+.sp |3
+.if d let@wa-div .let@wa-div
+.\"----- Geadresseerde
+.if '\\$1'V' .if d let@ia-div \{\
+.	sp |10
+.	let@ia-div
+.\}
+.\" pos T4 -----------------------------------
+.in 9.14c
+.\"----- Taakcompletering
+.if d let*lo-KOMP \{\
+.	sp |2
+\\*[let*lo-KOMP]
+.\}
+.\"----- dokumentnamn
+.if d let*lo-DNAMN \{\
+.	sp |3
+\\*[let*lo-DNAMN]
+.\}
+.\"----- datum
+.if d cov*new-date \{\
+.	sp |5
+Datum:
+\\*[cov*new-date]
+.\}
+.\"----- mottagarens datum
+.if d let*lo-MDAT \{\
+.	sp |7
+\\*[LetMDAT]
+\\*[let*lo-MDAT]
+.\}
+.\"----- addressat
+.if '\\$1'H' .if d let@ia-div \{\
+.	sp |10
+.	let@ia-div
+.\}
+.\" pos T6 -----------------------------------
+.in 13.72c
+.\"----- mottagarens beteck.
+.if d let*lo-MBET \{\
+.	sp |7
+\\*[LetMBET]
+\\*[let*lo-MBET]
+.\}
+.\"----- dokumentbeteck.
+.if d let*lo-BET \{\
+.	sp |3
+\\*[LetBET]
+\\*[let*lo-BET]
+.\}
+.\" pos T7 -----------------------------------
+.in 16c
+.\"----- bilaga
+.if d let*lo-BIL \{\
+.	sp |2
+\\*[LetBIL]\\*[let*lo-BIL]
+.\}
+.\"
+.\"----- sidnummer
+.sp |3
+.ie d let*lo-SIDOR \\n[%] (\\*[let*lo-SIDOR])
+.el \\n[%]
+.\"
+.\" Ta hand om special
+.if d TP .TP
+.sp |17
+..
+.\"  -----------------------------------
+.
+.\" ====================================================================
+.\" Editor settings
+.\" ====================================================================
+.
+.\" Local Variables:
+.\" mode: nroff
+.\" fill-column: 72
+.\" End:
+.\" vim: set filetype=groff textwidth=72:

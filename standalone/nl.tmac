@@ -1,0 +1,150 @@
+.\" Swedish localization for groff
+.\"
+.\" Copyright (C) 2006-2018 Free Software Foundation, Inc.
+.\"   Written by Werner Lemberg (wl@gnu.org)
+.\"
+.\" This file is part of groff.
+.\"
+.\" groff is free software; you can redistribute it and/or modify it
+.\" under the terms of the GNU General Public License as published by
+.\" the Free Software Foundation, either version 3 of the License, or
+.\" (at your option) any later version.
+.\"
+.\" groff is distributed in the hope that it will be useful, but WITHOUT
+.\" ANY WARRANTY; without even the implied warranty of MERCHANTABILITY
+.\" or FITNESS FOR A PARTICULAR PURPOSE.  See the GNU General Public
+.\" License for more details.
+.\"
+.\" You should have received a copy of the GNU General Public License
+.\" along with this program.  If not, see
+.\" <http://www.gnu.org/licenses/>.
+.\"
+.\" Please send comments to groff@gnu.org.
+.
+.
+.\" Locale string
+.
+.ds locale dutch\"
+.
+.
+.\" Predefined text translations
+.
+.ds \*[locale]-abstract SAMENVATTING\"
+.ds \*[locale]-app Bijlage\"
+.ds \*[locale]-april april\"
+.ds \*[locale]-attribute_string av\"
+.ds \*[locale]-august augustus\"
+.ds \*[locale]-chapter_string Hoofdstuk\"
+.ds \*[locale]-december december\"
+.ds \*[locale]-draft_string CONCEPT\"
+.ds \*[locale]-endnote_string EINDNOTEN\"
+.ds \*[locale]-february februari\"
+.ds \*[locale]-finis_string EINDE\"
+.ds \*[locale]-friday vrijdag\"
+.ds \*[locale]-january januari\"
+.ds \*[locale]-july juli\"
+.ds \*[locale]-june juni\"
+.ds \*[locale]-le vergelijkingen\"
+.ds \*[locale]-letapp Goedgekeurd door\"
+.ds \*[locale]-letat GERICHT AAN:\"
+.ds \*[locale]-letcn VERTROUWELIJK\"
+.ds \*[locale]-letdate datum\"
+.ds \*[locale]-letfc Met vriendelijke groet,\"
+.ds \*[locale]-letns!0  Kopie naar\"
+.ds \*[locale]-letns!1 Kopie (met bijl.) naar\"
+.ds \*[locale]-letns!10 Kopie (met bijl. naar\"
+.ds \*[locale]-letns!11 Kopie (zonder bijl.) naar\"
+.ds \*[locale]-letns!12 Alleen samenvatting naar\"
+.ds \*[locale]-letns!13 Volledige document naar\"
+.ds \*[locale]-letns!14 CC:
+.ds \*[locale]-letns!2 Kopie (zonder bijl.) naar\"
+.ds \*[locale]-letns!3 Att.\"
+.ds \*[locale]-letns!4 Atts.\"
+.ds \*[locale]-letns!5 Enc.\"
+.ds \*[locale]-letns!6 Encs.\"
+.ds \*[locale]-letns!7 Met een ander titelblad\"
+.ds \*[locale]-letns!8 Brief naar\"
+.ds \*[locale]-letns!9 Document naar\"
+.ds \*[locale]-letns!copy Kopie \" space!
+.ds \*[locale]-letns!to " naar\"
+.ds \*[locale]-letrn Verwijzend naar:
+.ds \*[locale]-letsa Aan de betrokkene\"
+.ds \*[locale]-letsj Inhoud:
+.ds \*[locale]-lf Figuren\"
+.ds \*[locale]-licon Inhoudsopgave\"
+.ds \*[locale]-liec Vergelijking\"
+.ds \*[locale]-liex Opstelling\"
+.ds \*[locale]-lifg Figure\"
+.ds \*[locale]-litb Tabel\"
+.ds \*[locale]-lt Tabellen\"
+.ds \*[locale]-lx Opstellingen\"
+.ds \*[locale]-march maart\"
+.ds \*[locale]-may mei\"
+.ds \*[locale]-monday maandag\"
+.ds \*[locale]-november november\"
+.ds \*[locale]-october oktober\"
+.ds \*[locale]-paper A4\"
+.ds \*[locale]-qrf Zie hoofdstuk \\*[Qrfh], pagina \\*[Qrfp].\"
+.ds \*[locale]-references Referenties\"
+.ds \*[locale]-revision_string Ver.\"
+.ds \*[locale]-rp Referenties\"
+.ds \*[locale]-saturday zaterdag\"
+.ds \*[locale]-september september\"
+.ds \*[locale]-sunday zondag\"
+.ds \*[locale]-thursday donderdag\"
+.ds \*[locale]-toc Inhoud\"
+.ds \*[locale]-toc_header_string Inhoud\"
+.ds \*[locale]-tuesday dinsdag\"
+.ds \*[locale]-wednesday woensdag\"
+.
+.
+.\" Activate the translations
+.
+.mso trans.tmac
+.
+.
+.\" ms package
+.if r GS \{\
+.	\" update the date
+.	ds DY \n[dy] \*[MO] \n[year]
+.	\" set hyphenation flags
+.	nr HY 4
+.\}
+.
+.
+.\" mm package -- additional Dutch localization is done in mse.tmac
+.
+.
+.\" me package
+.if d @R \{\
+.	\" date update
+.	ds td \n(dy \*(mo \n(y4
+.\}
+.
+.
+.\" Default encoding
+.mso latin1.tmac
+.
+.
+.\" Dutch hyphenation (\lefthyphenmin=1, \righthyphenmin=2)
+.ss 12 0
+.hy 32
+.hcode é é  É é
+.
+.hla nl
+.hpf hyphen.nl
+.
+.
+.\" man, mdoc and mdoc-old are intentionally left untouched: usually
+.\" these packages are translated in the sources of the documents.
+.
+.\" ====================================================================
+.\" Editor settings
+.\" ====================================================================
+.
+.\" Local Variables:
+.\" mode: nroff
+.\" coding: latin-1
+.\" fill-column: 72
+.\" End:
+.\" vim: set filetype=groff textwidth=72:
