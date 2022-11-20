@@ -58,7 +58,5 @@ sed -e 's/Page *size: *\\([[:digit:].]*\\) *x *\\([[:digit:].]*\\).*$/\
 .sy echo ".ds Breed $(echo 'scale=2; \\n[in-wid]/\\n[in-ht]*\\n[.ps]/1000' | bc -l)"p > /tmp/pdffac
 .so /tmp/pdffac
 .sy rm /tmp/pdffac
-\v'-\\n[.ps]u'
-\X'pdf: pdfpic build/\\$1.pdf 0p \\*[Breed]'
-\h'\\*[Breed]' 
+\v'-\\n[.ps]u'\X'pdf: pdfpic build/\\$1.pdf 0p \\*[Breed]'\h'\\*[Breed]' 
 ..
