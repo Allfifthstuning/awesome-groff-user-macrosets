@@ -1,0 +1,178 @@
+.TH GROFF_MMNL 7 "20 November 2022" "groff 1.22.4"
+.SH NAAM
+groff_mmse \- Nederlands \(rqmemorandum\(rq makro voor GNU roff
+.
+.
+.\" Save and disable compatibility mode (for, e.g., Solaris 10/11).
+.do nr groff_mmnl_C \n[.C]
+.cp 0
+.
+.
+.\" ====================================================================
+.\" Legal Terms
+.\" ====================================================================
+.\"
+.\" Copyright (C) 1989-2018 Free Software Foundation, Inc.
+.\"
+.\" Permission is granted to make and distribute verbatim copies of this
+.\" manual provided the copyright notice and this permission notice are
+.\" preserved on all copies.
+.\"
+.\" Permission is granted to copy and distribute modified versions of
+.\" this manual under the conditions for verbatim copying, provided that
+.\" the entire resulting derived work is distributed under the terms of
+.\" a permission notice identical to this one.
+.\"
+.\" Permission is granted to copy and distribute translations of this
+.\" manual into another language, under the above conditions for
+.\" modified versions, except that this permission notice may be
+.\" included in translations approved by the Free Software Foundation
+.\" instead of in the original English.
+.
+.\"
+.\" Geschreven door Hans Bezemer, Sliedrecht, Nederland
+.\"
+.
+.mso nl.tmac
+.
+.
+.\" ====================================================================
+.SH SYNTAX
+.\" ====================================================================
+.
+.SY "groff \-mmnl"
+.RI [ optie
+\&.\|.\|.\&]
+.RI [ bestandsnaam
+\&.\|.\|.\&]
+.SY "groff \-m mmnl"
+.RI [ optie
+\&.\|.\|.\&]
+.RI [ bestandsnaam
+\&.\|.\|.\&]
+.YS
+.
+.
+.\" ====================================================================
+.SH BESCHRIJVING
+.\" ====================================================================
+.
+.B mmnl
+is de Nederlandse variant van
+.BR mm .
+Alle tekst is aangepast naar het Nederlands.
+Op een A4 wordt tekst geplaatst met een breedte van 13 cm, een marge van 3,5 cm en 
+een hoogte van 28,cm.
+Het is mogelijk om tekst links of aan beide zijden uit te lijnen.
+.
+.LP
+.B COVER
+accepteert 
+.I nl_ms
+als argument om een Nederlands voorblad te krijgen.
+Zie
+.BR groff_mm (7)
+voor meer details
+.
+.
+.\" ====================================================================
+.SH BRIEF
+.\" ====================================================================
+.
+Beschikbare brieftypen:
+.
+.TP
+.B ".LT NLV"
+Links uitgelijnde tekst met de geadresseerde in positie T0 (links
+uitgelijnd).
+.
+.TP
+.B ".LT NLH"
+Rechts uitgelijnde tekst met adres in positie T4 (past op
+vensterenveloppen).
+.
+.LP
+De volgende aanvullende LO-variabelen worden gebruikt.
+.
+.TP
+.BI ".LO DNAAM\ " naam
+Specificeert de naam van het document.
+.
+.TP
+.BI ".LO ODAT\ " datum
+De datum van de ontvanger, weergegeven na
+.B Uw datum:
+.RB ( LetODAT ).
+.
+.TP
+.BI ".LO BIJ\ " string
+Specificeert bijlage, nummer of tekenreeks met 
+.B Bijlage
+.RB ( LetBIJ )
+als voorvoegsel.
+.
+.TP
+.BI ".LO COMP\ " tekst
+Taakcompletering
+.
+.TP
+.BI ".LO DNUM\ " kenmerk
+Geeft het dokumentskenmerk of -nummer.
+.
+.TP
+.BI ".LO KEN\ " kenmerk
+Alternatief kenmerk
+.
+.TP
+.BI ".LO PAGINA\ " aantal
+Geeft het totale aantal pagina's aan en wordt afgedrukt na het paginanummer tussen
+haakjes.
+.
+.LP
+Als de 
+.B .TP
+-macro is gedefinieerd, wordt deze aangeroepen na het afdrukken van het
+briefhoofd. Het is handig om het postadres en andere informatie als voetnoot in
+te voeren.
+.
+.
+.\" ====================================================================
+.SH "GESCHREVEN DOOR"
+.\" ====================================================================
+.
+Hans Bezemer, Sliedrecht, Nederland <hbezemer@kliksafe.nl>
+.
+.
+.\" ====================================================================
+.SH BESTANDEN
+.\" ====================================================================
+.
+.TP
+.I /usr/\:share/\:groff/\:1.22.4/\:tmac/mnl.tmac
+.TP
+.IR /usr/share/groff/1.22.4/tmac/mm/nl_ * .cov
+.
+.
+.na
+.\" ====================================================================
+.SH "ZIE OOK"
+.\" ====================================================================
+.
+.BR groff (1),
+.BR troff (1),
+.BR tbl (1),
+.BR pic (1),
+.BR eqn (1)
+.br
+.BR groff_mm (7)
+.
+.
+.\" Restore compatibility mode (for, e.g., Solaris 10/11).
+.cp \n[groff_mmnl_C]
+.
+.
+.\" Local Variables:
+.\" coding: latin-1
+.\" mode: nroff
+.\" End:
+.\" vim: set filetype=groff:
