@@ -14,7 +14,7 @@ abbreviate A
 et-al " et al." 3 4
 .R2
 .\" Creating strings used for bibliograpy
-.ds string*article \\*[[A] (\\*[[D]). \fI\\*[[T]\fR 
+.ds string*article \\*[[A] (\\*[[D]). \fI\\*[[T]\fR. 
 .ds string*book \\*[[A] (\\*[[D]). \fI\\*[[T]\fR, \\*[[P]. 
 .\" Macro for creating right entries in bibliograpy
 .
@@ -41,7 +41,7 @@ awk  	' BEGIN	{FS="[,]";} \
 					printf("%s.",author[j]); \
 					}  \
 				} \
-			if ( i == NF ) { \
+			if ( i == NF && NF > 1 ) { \
 				printf(" & %s, ",author[needi]);		 \
 				for (j =1; j < needi; j++) { \
 					printf("%s.",author[j]); \
@@ -62,10 +62,13 @@ awk  	' BEGIN	{FS="[,]";} \
 \\*[string*book]
 \}
 .in
-.\".br
+.sp -1
 .rm [A [B [C [D [E [F [G [H [I [J [K [L [M [N [O [P [Q [R [S \
 [T [U [V [W [X [Y [Z [a [b [c [d [e [f [g [h [i [j [k [l \
 [m [n [o [p [q [r [s [t [u [v [w [x [y [z
+..
+.de ]>
+.sp 1
 ..
 .ds [. " (
 .ds .] ") 
