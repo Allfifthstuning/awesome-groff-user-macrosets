@@ -18,7 +18,7 @@
 .de VRA END
 .	nr PUNTT \\n[PUNTT]+\\$1
 .	nr POSP \\n[.o]u/2u
-.	ds PUVR "(\\$1p)\~\~\~\\n+[VRAAGNR].
+.	ds PUVR "\s[-2]\\$1p\s[+2]\~\~\~\~\fB\\n+[VRAAGNR]\fR
 .br
 \# This is the older setup for positioning the question number
 \#\h'-\\n[POSP]u'(\\$1p)\h'-\w'(\\$1p)'u'\h'\\n[POSP]u'\\n+[VRAAGNR]. \c 
