@@ -14,44 +14,93 @@ abbreviate A
 et-al " et al." 3 4
 .R2
 .\" Creating strings used for bibliograpy
+.ds string*Generic This is a  string*Generic, and I needed formatting!
+.ds string*Government*Document This is a  string*Government*Document, and I needed formatting!
+.ds string*Aggregated*Database This is a  string*Aggregated*Database, and I needed formatting!
+.ds string*Ancient*Text This is a  string*Ancient*Text, and I needed formatting!
+.ds string*Artwork This is a  string*Artwork, and I needed formatting!
+.ds string*Audiovisual*Material This is a  string*Audiovisual*Material, and I needed formatting!
+.ds string*Bill This is a  string*Bill, and I needed formatting!
+.ds string*Blog This is a  string*Blog, and I needed formatting!
+.ds string*Book This is a  string*Book, and I needed formatting!
+.ds string*Book*Section This is a  string*Book*Section, and I needed formatting!
+.ds string*Case This is a  string*Case, and I needed formatting!
+.ds string*Catalog This is a  string*Catalog, and I needed formatting!
+.ds string*Chart*or*Table This is a  string*Chart*or*Table, and I needed formatting!
+.ds string*Classical*Work This is a  string*Classical*Work, and I needed formatting!
+.ds string*Computer*Program This is a  string*Computer*Program, and I needed formatting!
+.ds string*Conference*Paper This is a  string*Conference*Paper, and I needed formatting!
+.ds string*Conference*Proceedings This is a  string*Conference*Proceedings, and I needed formatting!
+.ds string*Dictionary This is a  string*Dictionary, and I needed formatting!
+.ds string*Edited*Book This is a  string*Edited*Book, and I needed formatting!
+.ds string*Electronic*Article This is a  string*Electronic*Article, and I needed formatting!
+.ds string*Electronic*Book This is a  string*Electronic*Book, and I needed formatting!
+.ds string*Encyclopedia This is a  string*Encyclopedia, and I needed formatting!
+.ds string*Equation This is a  string*Equation, and I needed formatting!
+.ds string*Figure This is a  string*Figure, and I needed formatting!
+.ds string*Film*or*Broadcast This is a  string*Film*or*Broadcast, and I needed formatting!
+.ds string*Grant This is a  string*Grant, and I needed formatting!
+.ds string*Hearing This is a  string*Hearing, and I needed formatting!
+.ds string*Journal*Article This is a  string*Journal*Article, and I needed formatting!
+.ds string*Legal*Rule*or*Regulation This is a  string*Legal*Rule*or*Regulation, and I needed formatting!
+.ds string*Magazine*Article This is a  string*Magazine*Article, and I needed formatting!
+.ds string*Manuscript This is a  string*Manuscript, and I needed formatting!
+.ds string*Map This is a  string*Map, and I needed formatting!
+.ds string*Music This is a  string*Music, and I needed formatting!
+.ds string*Newspaper*Article This is a  string*Newspaper*Article, and I needed formatting!
+.ds string*Online*Database This is a  string*Online*Database, and I needed formatting!
+.ds string*Online*Multimedia This is a  string*Online*Multimedia, and I needed formatting!
+.ds string*Pamphlet This is a  string*Pamphlet, and I needed formatting!
+.ds string*Patent This is a  string*Patent, and I needed formatting!
+.ds string*Personal*Communication This is a  string*Personal*Communication, and I needed formatting!
+.ds string*Report This is a  string*Report, and I needed formatting!
+.ds string*Serial*Publication This is a  string*Serial*Publication, and I needed formatting!
+.ds string*Standard This is a  string*Standard, and I needed formatting!
+.ds string*Statute This is a  string*Statute, and I needed formatting!
+.ds string*Thesis This is a  string*Thesis, and I needed formatting!
+.ds string*Unpublished*Work This is a  string*Unpublished*Work, and I needed formatting!
+.ds string*Web*Page This is a  string*Web*Page, and I needed formatting!
+.ds string*Unused*1 This is a  string*Unused*1, and I needed formatting!
+.ds string*Unused*2 This is a  string*Unused*2, and I needed formatting!
+.ds string*Unused*3 This is a  string*Unused*3, and I needed formatting!
 .ds string*article \\*[[A] (\\*[[D]). \fI\\*[[T]\fR. 
 .ds string*book \\*[[A] (\\*[[D]). \fI\\*[[T]\fR, \\*[[P]. 
 .\" Macro for creating right entries in bibliograpy
 .
 .de ][
-.sy echo "\\*[[A]" | \
-tee Result1.txt | \
-sed 	-e ' s/&/,/g '  \
-	-e ' s/ //g '  | \
-tee Result2.txt | \
-awk  	' BEGIN	{FS="[,]";} \
-		{  \
-		printf(".ds [A "); \
-		for(i = 1; i <= NF; i++){ \
-			needi = split($i,author,"."); \
-			if ( i == 1){ \
-				printf("%s, ",author[needi]);		 \
-				for (j =1; j < needi; j++) { \
-					printf("%s.",author[j]); \
-					}  \
-				} \
-			if ( i > 1 && i < NF ){ \
-				printf(", %s, ",author[needi]);		 \
-				for (j =1; j < needi; j++) { \
-					printf("%s.",author[j]); \
-					}  \
-				} \
-			if ( i == NF && NF > 1 ) { \
-				printf(" & %s, ",author[needi]);		 \
-				for (j =1; j < needi; j++) { \
-					printf("%s.",author[j]); \
-					}  \
-				} \
-		}  \
-		print ""; \
-		} ' > /tmp/authors.tmp
-.so /tmp/authors.tmp
-.sy rm /tmp/authors.tmp
+\#.sy echo "\\*[[A]" | \
+\#tee Result1.txt | \
+\#sed 	-e ' s/&/,/g '  \
+\#	-e ' s/ //g '  | \
+\#tee Result2.txt | \
+\#awk  	' BEGIN	{FS="[,]";} \
+\#		{  \
+\#		printf(".ds [A "); \
+\#		for(i = 1; i <= NF; i++){ \
+\#			needi = split($i,author,"."); \
+\#			if ( i == 1){ \
+\#				printf("%s, ",author[needi]);		 \
+\#				for (j =1; j < needi; j++) { \
+\#					printf("%s.",author[j]); \
+\#					}  \
+\#				} \
+\#			if ( i > 1 && i < NF ){ \
+\#				printf(", %s, ",author[needi]);		 \
+\#				for (j =1; j < needi; j++) { \
+\#					printf("%s.",author[j]); \
+\#					}  \
+\#				} \
+\#			if ( i == NF && NF > 1 ) { \
+\#				printf(" & %s, ",author[needi]);		 \
+\#				for (j =1; j < needi; j++) { \
+\#					printf("%s.",author[j]); \
+\#					}  \
+\#				} \
+\#		}  \
+\#		print ""; \
+\#		} ' > /tmp/authors.tmp
+\#.so /tmp/authors.tmp
+\#.sy rm /tmp/authors.tmp
 .in +0.5i
 .if '\\*[[t]'article' \{
 .ti -0.5i
