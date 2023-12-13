@@ -7,6 +7,7 @@
 \# fonttype en puntgrootte op basis van dyslectie standaard.
 .fam H
 .ps 12
+.S 12
 \# Instellen van de juiste waarden
 .ds Lifg Figuur
 .PH "''''"
@@ -18,12 +19,12 @@
 .de VRA END
 .	nr PUNTT \\n[PUNTT]+\\$1
 .	nr POSP \\n[.o]u/2u
-.	ds PUVR "\s[-2]\\$1p\s[+2]\~\~\~\~\fB\\n+[VRAAGNR]\fR
+.	ds PUVR "\s[-2]\\$1p\s[+2]\h'0.5c'\fB\\n+[VRAAGNR]\fR
 .br
 \# This is the older setup for positioning the question number
 \#\h'-\\n[POSP]u'(\\$1p)\h'-\w'(\\$1p)'u'\h'\\n[POSP]u'\\n+[VRAAGNR]. \c 
 \# New position of questionnumber
-\h'-1.8c'\\*[PUVR]\h'-\w'\\*[PUVR]'u'\h'1.8c'\c
+\h'-1.7c'\\*[PUVR]\h'-\w'\\*[PUVR]'u'\h'1.7c'\c
 .END
 .
 \# Vraag eind macro

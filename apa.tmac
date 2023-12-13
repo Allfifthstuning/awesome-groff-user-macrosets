@@ -43,7 +43,7 @@
 .ds string*Film*or*Broadcast This is a  string*Film*or*Broadcast, and I needed formatting!
 .ds string*Grant This is a  string*Grant, and I needed formatting!
 .ds string*Hearing This is a  string*Hearing, and I needed formatting!
-.ds string*Journal*Article This is a  string*Journal*Article, and I needed formatting!
+.ds string*Journal*Article \\*[[A] (\\*[[D]). \\*[[T]. \fI\\*[[J]\fR, \\*[[V](\\*[[N]), \\*[[P].
 .ds string*Legal*Rule*or*Regulation This is a  string*Legal*Rule*or*Regulation, and I needed formatting!
 .ds string*Magazine*Article This is a  string*Magazine*Article, and I needed formatting!
 .ds string*Manuscript This is a  string*Manuscript, and I needed formatting!
@@ -65,18 +65,16 @@
 .ds string*Unused*1 This is a  string*Unused*1, and I needed formatting!
 .ds string*Unused*2 This is a  string*Unused*2, and I needed formatting!
 .ds string*Unused*3 This is a  string*Unused*3, and I needed formatting!
-.ds string*article \\*[[A] (\\*[[D]). \fI\\*[[T]\fR. 
-.ds string*book \\*[[A] (\\*[[D]). \fI\\*[[T]\fR, \\*[[P]. 
 .\" Macro for creating right entries in bibliograpy
 \#
 .de reference*Macro
 .if '\\*[[0]'\\$1' \{
-.ti -0.5i
+.ti -0.25i
 \\*[\\$2]
 \}
 ..
 .de ][
-.in +0.5i
+.in +0.25i
 .reference*Macro "Book" "string*Book"
 .reference*Macro "Journal Article" "string*Journal*Article"
 .in

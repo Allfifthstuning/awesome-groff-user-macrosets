@@ -1,8 +1,8 @@
 \# Macroset to add comments in texts
 \# To Do: Make a toggle to turn of visibility of the comments
-.XCOLOR red
 .de OPM END
-.COLOR red
+.gcolor red
+.P
 .ft B
 [OPMERKING]
 .ft R
@@ -10,10 +10,10 @@
 .END
 \#
 .de OPEND END
-.br
+.sp 1
 .ft B
 [OPMERKING EIND]
 .ft R
 .br
-.COLOR black
+.gcolor black
 .END
