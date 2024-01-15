@@ -67,6 +67,17 @@
 .sp
 .END
 .
+\#Toetsmatrijs macro
+.de MAT END
+.	if (\n[ANTNR] == 0) .ig ANTEND
+.	sp
+.	HU Toetsmatrijs
+.	br
+.END
+.
+.de MATEND END
+.	br
+.END
 \# Eind macro
 .de EIND END
 .	open punten punten.txt
