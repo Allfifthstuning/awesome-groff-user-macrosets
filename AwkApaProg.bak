@@ -1,0 +1,33 @@
+\#.sy echo "\\*[[A]" | \
+\#tee Result1.txt | \
+\#sed 	-e ' s/&/,/g '  \
+\#	-e ' s/ //g '  | \
+\#tee Result2.txt | \
+\#awk  	' BEGIN	{FS="[,]";} \
+\#		{  \
+\#		printf(".ds [A "); \
+\#		for(i = 1; i <= NF; i++){ \
+\#			needi = split($i,author,"."); \
+\#			if ( i == 1){ \
+\#				printf("%s, ",author[needi]);		 \
+\#				for (j =1; j < needi; j++) { \
+\#					printf("%s.",author[j]); \
+\#					}  \
+\#				} \
+\#			if ( i > 1 && i < NF ){ \
+\#				printf(", %s, ",author[needi]);		 \
+\#				for (j =1; j < needi; j++) { \
+\#					printf("%s.",author[j]); \
+\#					}  \
+\#				} \
+\#			if ( i == NF && NF > 1 ) { \
+\#				printf(" & %s, ",author[needi]);		 \
+\#				for (j =1; j < needi; j++) { \
+\#					printf("%s.",author[j]); \
+\#					}  \
+\#				} \
+\#		}  \
+\#		print ""; \
+\#		} ' > /tmp/authors.tmp
+\#.so /tmp/authors.tmp
+\#.sy rm /tmp/authors.tmp
