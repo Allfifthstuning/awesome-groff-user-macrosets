@@ -66,6 +66,13 @@
 .\}
 .sp
 .END
+\#Negeer macro. Hetzelfde als ANT/ANTEND alleen zonder opmaak
+.de IG END
+.       if (\n[ANTNR] == 0) .ig IGEND
+.END
+.
+.de IGEND END
+.END
 .
 \#Toetsmatrijs macro
 .de MAT END

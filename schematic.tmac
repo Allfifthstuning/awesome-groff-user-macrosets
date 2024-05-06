@@ -1,0 +1,81 @@
+\# This is a PIC macro set for simple electronic components.
+\# It aims to to be used in a document with a pointsize of around 11.
+.PS
+#Setting the scale to cm instead of inches.
+define VRES {
+	[
+	line 0.1
+	box height 1.3 width 0.5 "$1"
+	line 0.1
+	]
+}
+define HRES {
+	[
+	line 0.1
+	box height 0.5 width 1.3 "$1"
+	line 0.1
+	]
+}
+#Battery
+define BAT {
+	[
+INV: 	box invis height 1.4 width 1.15
+ 	right
+ 	line  0.5 at last box .w
+ 	move down 0.3; 
+	up
+PLUS:	line 0.6
+	move right 0.1
+	move down 0.1
+MIN:	box height 0.4 width 0.1 filled 1
+	"+" at top of PLUS + (0.0,0.1)
+	"-" at top of MIN + (0.0,0.2)
+	"6V" at top of MIN + (-0.05,0.3)
+#Naar rechts
+	right
+	line with .start at .e of last box 0.5
+	]
+}
+define HLAMP {
+	[
+INV:	box invis height 0.5 width 1
+	right
+	line 0.5 at last box .w
+	circle invis rad 0.25 with .c at last line .end 
+	line from last circle.ne to last circle.sw
+	line from last circle.nw to last circle.se
+	right
+	line 0.5 from last circle.c
+	]
+}
+define VLAMP {
+	[
+INV:	box invis height 1 width 0.5 
+	down
+	line 0.5 at last box .n
+	circle invis rad 0.25 with .c at last line .end 
+	line from last circle.ne to last circle.sw
+	line from last circle.nw to last circle.se
+	down
+	line 0.5 from last circle.c
+	]
+}
+define HMET {
+	[
+INV:	box invis height 0.5 width 1
+	right
+	line 0.25 at last box .w
+	circle rad 0.25 with .w at last line .end "$1"
+	line 0.25 from last circle.e
+	]
+}
+define VMET {
+	[
+INV:	box invis height 1 width 0.5 
+	down
+	line 0.25 at last box .n
+	circle rad 0.25 with .n at last line .end "$1"
+	line 0.25 from last circle.s
+	]
+}
+.PE
