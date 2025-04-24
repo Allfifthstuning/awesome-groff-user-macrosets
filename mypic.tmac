@@ -1,0 +1,10 @@
+.PS
+angle = 0
+pi = atan2(0, -1);
+define aline {
+	right
+	ycor = sin(($3+angle)*2*pi/360)*$2
+	xcor = cos(($3+angle)*2*pi/360)*$2
+	line from $1 to $1 +(xcor,ycor)
+}
+.PE

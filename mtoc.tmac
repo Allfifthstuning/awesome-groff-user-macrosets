@@ -1,0 +1,65 @@
+.\" table of contents
+.de TOC
+.br
+.\" print any pending displays and references
+\#.df@print-float 3
+.if \\n[ref*flag] .RP 0 1
+.\"
+.nr toc*hl!1 1m
+.nr toc*hl!2 2m
+.if \w@\\$1@>0 .nr toc*slevel \\$1
+.if \w@\\$2@>0 .nr toc*spacing (u;\\$2*\\n[Lsp])
+.if \w@\\$3@>0 .nr toc*tlevel \\$3
+.if \w@\\$4@>0 .nr toc*tab \\$4
+.if \\n[pg*cols-per-page]>1 .1C
+.ds H1txt \\*[Licon]
+.ds Tcst co
+\#.pg@clear-hd
+.EF ""
+.OF ""
+\#.pg@next-page
+.\"-------------
+.if d Ci .toc@read-Ci \\*[Ci]
+.nf
+.in 0
+\#.ie \\n[Oc] .hd@set-page 1
+\#.el \{\
+\#.	nr toc*pn 1 1
+\#.	af toc*pn 1
+\#.	aln ;g toc*pn
+\#.	PF "''\\\\\\\\n[toc*pn]''"
+\#.	am pg@header
+\#.		nr toc*pn +1
+\#\\..
+\#.\}
+.nr toc*i 4 1
+.while \\n+[toc*i]<10 \{\
+.	if !'\\$\\n[toc*i]'' \{\
+.		ce
+\\$\\n[toc*i]
+.		br
+.	\}
+.\}
+.if \\n[.$]<=4 .if d TX .TX
+.ie d TY .if \\n[.$]<=4 .TY
+.el \{\
+.	ce
+\\*[Licon]
+.	br
+.	SP 3
+.\}
+\#.if d toc*list .toc*list
+.so toc.txt
+.br
+.\" print LIST OF XXX
+.if d lix*dsfg .lix@print-ds fg FG "\\*[Lf]" \\n[.$]
+.if d lix*dstb .lix@print-ds tb TB "\\*[Lt]" \\n[.$]
+.if d lix*dsec .lix@print-ds ec EC "\\*[Le]" \\n[.$]
+.if d lix*dsex .lix@print-ds ex EX "\\*[Lx]" \\n[.$]
+.bp
+..
+.am pg@end-of-text
+.open TOC toc.txt
+.writem TOC toc*list
+.close TOC
+..
