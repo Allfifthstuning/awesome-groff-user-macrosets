@@ -1,10 +1,19 @@
 .PS
 angle = 0
 pi = atan2(0, -1);
-define aline {
-	right
-	ycor = sin(($3+angle)*2*pi/360)*$2
-	xcor = cos(($3+angle)*2*pi/360)*$2
-	line from $1 to $1 +(xcor,ycor)
+define ax {
+	cos(angle*2*pi/360)*$1
 }
+define ay {
+	sin(angle*2*pi/360)*$1
+}
+define aline { [
+	right
+	ycor = sin(($2+angle)*2*pi/360)*$1
+	xcor = cos(($2+angle)*2*pi/360)*$1
+	L1: line $3 from Here to Here +(xcor,ycor)
+	S: L1.start
+	C: L1.center
+	E: L1.end
+]}
 .PE
