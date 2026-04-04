@@ -1,6 +1,8 @@
 \# Toets macro
 \# Macro gaat ervan uit dat er gebruik gemaakt wordt van
 \# mmroff processor.
+.nr Isodate 1
+.ND
 \# De benodigde bestanden om kruisverwijzingen te kunnen maken
 .so punten.txt
 .so vragen.txt
@@ -15,6 +17,8 @@
 .if !r ANTNR .nr ANTNR 0
 .nr VRAAGNR 0 1
 .nr PUNTT 0
+.de END
+..
 \# Vraag macro
 .de VRA END
 .	nr PUNTT \\n[PUNTT]+\\$1
